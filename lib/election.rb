@@ -1,6 +1,7 @@
 class Election
-  attr_reader
+  attr_reader :year
 
   def initialize(year)
     @year = year
+  end
 end
