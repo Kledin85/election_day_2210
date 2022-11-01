@@ -8,8 +8,8 @@ class Race
   end
 
   def register_candidate!(candidate)
-    new = Candidate.new(candidate)
-
-    @candidates << new
+    Candidate.new(candidate)
   end
+
+
 end

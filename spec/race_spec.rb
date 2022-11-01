@@ -17,9 +17,19 @@ RSpec.describe Race do
 
   it 'can register candidates' do
     race = Race.new("Texas Governor")
-    #diana = Candidate.new({name: "Diana D", party: :democrat})
     candidate1 = race.register_candidate!({name: "Diana D", party: :democrat})
+    #require 'pry'; binding.pry
+    expect(candidate1.class).to eq(Candidate)
+    expect(candidate1.name).to eq("Diana D")
+    expect(candidate1.party).to eq(:democrat)
+  end
 
-    expect(candidate1.class).to be_a(Candidate)
+  it 'can add candidates' do
+    race = Race.new("Texas Governor")
+    candidate1 = race.register_candidate!({name: "Diana D", party: :democrat})
+    candidate2 = race.register_candidate!({name: "Roberto R", party: :republican})
+    
+
+    expect(race.candidates).to eq([candidate1, candidate2])
   end
 end
